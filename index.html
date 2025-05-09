@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Cake Co.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Give+You+Glory&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <div class="logo">Cake Co.</div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
+        </nav>
+        <div class="profile">
+            <img src="images/pfp.png" alt="Profile Picture"/>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>"Happiness in Every Bite."</h1>
+                <p>At Cake Co., we craft delightful pastries and custom cakes that 
+                    turn every occasion into a celebration. Whether it's a birthday, wedding, 
+                    or just your daily dose of sweetness, our treats are baked with love and a touch of magic.</p>
+                <button onclick="window.location.href='menu.html'">Order Now</button>
+            </div>
+        </section>
+
+        <section class="cakes-section">
+            <h2>Best Sellers</h2>
+            <div class="home-cards">
+                <div class="home-card">
+                    <img src="images/Cake 1.png" alt="Heart Shaped Merry Berry"/>
+                    <h3>Heart Shaped Merry Berry</h3>
+                    <div class="description">
+                        <p>moist strawberry sponge cake with strawberry and cream frosting topped with fresh strawberries</p>
+                    </div>
+                    <button onclick="window.location.href='checkout.html?id=1'">Order Now</button>
+                </div>
+                <div class="home-card">
+                    <img src="images/Cake 2.png" alt="Devil's Cake"/>
+                    <h3>Devil's Cake</h3>
+                    <div class="description">
+                        <p>Three layers of rich dark chocolate cake with Belgian caramel covered with Belgian dark chocolate ganache.</p>
+                    </div>
+                    <button onclick="window.location.href='checkout.html?id=2'">Order Now</button>
+                </div>
+                <div class="home-card">
+                    <img src="images/Cake 3.png" alt="Strawberry White Cathedral"/>
+                    <h3>Strawberry White Cathedral</h3>
+                    <div class="description">
+                        <p>creamy rich vanilla frosting with two layers of strawberry goodness topped with fresh strawberries.</p>
+                    </div>
+                    <button onclick="window.location.href='checkout.html?id=3'">Order Now</button>
+                </div>
+            </div>
+            <div class="view-all">
+                <button onclick="window.location.href='menu.html'">View All Cakes</button>
+            </div>
+        </section>
+
+        <section class="feature-section1">
+            <div class="feature-section1-left">
+                <img src="images/homepageImage1.png" alt="Custom Cakes Display"/>
+            </div>
+            <div class="feature-section1-right">
+                <div class="feature-section1-right-content">
+                    <h2>Custom Cakes</h2>
+                    <p>We offer fully customizable cakes and designs tailored to your taste, theme, and imagination — because every celebration deserves something uniquely sweet.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-section2">
+            <div class="feature-section2-left">
+                <div class="feature-section2-left-content">
+                    <h3>TRY OUR NEW</h3>
+                    <h2>Fruity Cheesecake</h2>
+                    <p>Mango flavored cheesecake with Biscoff crust topped with fresh mangoes, strawberries, dates, and dark chocolate.</p>
+                </div>
+            </div>
+            <div class="feature-section2-right">
+                <img src="images/homepage image 2.png" alt="Fruity Cheesecake"/>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">Cake Co.</div>
+                <div class="footer-info">
+                    <p>Lexi Vasquez</p>
+                    <p>BMMA-D2</p>
+                    <p>vasquezlexi87@gmail.com</p>
+                    <p>April, 2025</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="#">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="about.html">About</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-links">
+                <h3>Contact Us</h3>
+                <a href="mailto:vasquezlexi87@gmail.com">Email Us</a>
+                <a href="tel:+1234567890">Call Us</a>
+                <a href="#">Visit Us</a>
+                <a href="#">Follow Us</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-rights">
+                <p>© 2025 BMMA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll behavior
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Feature section fade-in animation
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        // Observe feature section images
+        document.querySelectorAll('.feature-section1-left img, .feature-section2-right img').forEach(img => {
+            observer.observe(img);
+        });
+    </script>
+</body>
+</html>

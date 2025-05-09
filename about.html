@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About</title>
+  <link href="https://fonts.googleapis.com/css2?family=Give+You+Glory&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">Cake Co.</div>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a class="active" href="about.html">About</a></li>
+        <li><a href="#">Contacts</a></li>
+      </ul>
+    </nav>
+    <div class="profile">
+        <img src="images/pfp.png"/>
+    </div>
+  </header>
+
+  <section class="page-title-about">
+    <h1>About</h1>
+  </section>
+
+
+  <section class="centered-logo">
+    <h1 class="logo">Cake Co.</h1>
+  </section>
+
+
+
+  <section class="about-section1">
+    <div class="about-section1-left">
+
+    </div>
+    <div class="about-section1-right">
+        <div class="about-section1-right-content">
+            <p>
+                Founded in 2020, Cake Co. is a proudly homegrown cake shop dedicated to creating beautifully crafted cakes that bring joy to every occasion. What started as a small kitchen passion project during the quarantine days quickly blossomed into a full-fledged business loved by locals and sweet tooths alike.
+            </p>
+            <br>
+            <p>
+                Specializing exclusively in cakes, we focus on quality, flavor, and creative presentation — no distractions, just pure cake goodness. From classic favorites to dreamy custom creations, each cake is made with the finest ingredients and a whole lot of love.
+            </p>
+        </div>
+        
+    </div>
+  </section>
+
+  <section class="about-section2">
+    <div class="about-section2-left">
+        <div class="about-section2-left-content">
+            <p>
+                Over the years, our signature Strawberry Cake has become a fan favorite — known for its fluffy sponge layers, fresh strawberries, and silky whipped cream frosting. It's the kind of cake that gets requested again and again.
+                Whether you're celebrating a birthday, milestone, or just need a slice of happiness, Cake Co. is here to make it extra special — one delicious cake at a time.
+            </p>
+        </div>
+    </div>
+    <div class="about-section2-right">
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+        <div class="footer-brand">
+            <div class="footer-logo">Cake Co.</div>
+            <div class="footer-info">
+                <p>Lexi Vasquez</p>
+                <p>BMMA-D2</p>
+                <p>vasquezlexi87@gmail.com</p>
+                <p>April, 2025</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="about.html">About</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="footer-links">
+            <h3>Contact Us</h3>
+            <a href="mailto:vasquezlexi87@gmail.com">Email Us</a>
+            <a href="tel:+1234567890">Call Us</a>
+            <a href="#">Visit Us</a>
+            <a href="#">Follow Us</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-rights">
+            <p>© 2025 BMMA. All rights reserved.</p>
+        </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll behavior
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+  </script>
+</body>
+</html>

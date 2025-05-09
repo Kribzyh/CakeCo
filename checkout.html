@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout</title>
+  <link href="https://fonts.googleapis.com/css2?family=Give+You+Glory&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">Cake Co.</div>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#">Contacts</a></li>
+      </ul>
+    </nav>
+    <div class="profile">
+        <img src="images/pfp.png" alt="Profile Picture"/>
+    </div>
+  </header>
+
+  <section class="page-title-checkout">
+    <h1>Check Out</h1>
+  </section>
+
+  <section class="order-section">
+    <div class="order-section-left">
+        <div class="order-section-left-content">
+            <h2 id="order">Your Order</h2>
+            <h2 id="cake">Loading...</h2>
+            <h2 id="price"></h2>
+            <p id="description"></p>
+            <div class="input-box">
+                <label for="special-instructions">Special Instructions:</label>
+                <textarea id="special-instructions" name="special-instructions" placeholder="Add any special instructions or requests here..."></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="order-section-right">
+        <div class="cake-image">
+            <img id="cake-image" src="" alt="Cake Image">
+        </div>
+    </div>
+  </section>
+
+  <section class="total">
+    <h3 id="subtotal">Subtotal: </h3>
+    <h3>Estimated Tax: $0.00</h3>
+    <hr>
+    <h2 id="total">TOTAL: </h2>
+    <button class="place-order">Place Order</button>
+  </section>
+
+  <!-- Order Confirmation Modal -->
+  <div id="orderModal" class="order-modal">
+    <div class="order-modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Order Placed Successfully!</h2>
+        <p>Thank you for your order. We'll start preparing your cake right away.</p>
+        <button class="back-to-menu">Back to Menu</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+        <div class="footer-brand">
+            <div class="footer-logo">Cake Co.</div>
+            <div class="footer-info">
+                <p>Lexi Vasquez</p>
+                <p>BMMA-D2</p>
+                <p>vasquezlexi87@gmail.com</p>
+                <p>April, 2025</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="about.html">About</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="footer-links">
+            <h3>Contact Us</h3>
+            <a href="mailto:vasquezlexi87@gmail.com">Email Us</a>
+            <a href="tel:+1234567890">Call Us</a>
+            <a href="#">Visit Us</a>
+            <a href="#">Follow Us</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-rights">
+            <p>© 2025 BMMA. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Header scroll behavior
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Get cake details from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const cakeId = urlParams.get('id');
+
+    // Cake data (in a real application, this would come from a database)
+    const cakes = {
+        '1': {
+            name: "Heart Shaped Merry Berry",
+            price: 25.99,
+            description: "Moist strawberry sponge cake with strawberry and cream frosting topped with fresh strawberries",
+            image: "images/Cake 1.png"
+        },
+        '2': {
+            name: "Devil's Cake",
+            price: 28.99,
+            description: "Three layers of rich dark chocolate cake with Belgian caramel covered with Belgian dark chocolate ganache",
+            image: "images/Cake 2.png"
+        },
+        '3': {
+            name: "Strawberry White Cathedral",
+            price: 26.99,
+            description: "Creamy rich vanilla frosting with two layers of strawberry goodness topped with fresh strawberries",
+            image: "images/Cake 3.png"
+        },
+        '4': {
+            name: "Triple Chocolate Deluxe",
+            price: 29.99,
+            description: "Triple moist fudge brownie cake with custard filling and coated with milk chocolate ganache",
+            image: "images/Cake 4.png"
+        },
+        '5': {
+            name: "Fruity Cheesecake",
+            price: 27.99,
+            description: "Mango flavored cheesecake with Biscoff crust topped with fresh mangoes, strawberries, dates, and dark chocolate",
+            image: "images/Cake 5.png"
+        },
+        '6': {
+            name: "Salted Caramel",
+            price: 26.99,
+            description: "Chocolate sponge layers with salted caramel filling and coated with caramel frosting topped with pretzels and chocolate",
+            image: "images/Cake 6.png"
+        },
+        '7': {
+            name: "Ube Goodness",
+            price: 25.99,
+            description: "Delicious Ube cake with pure purple yam filling frosted with home-made ube frosting",
+            image: "images/Cake 7.png"
+        },
+        '8': {
+            name: "Carrot Cream Cake",
+            price: 24.99,
+            description: "Made with pure carrot with almonds and frosted with rich cream cheese",
+            image: "images/Cake 8.png"
+        },
+        '9': {
+            name: "Choco Berry Overload",
+            price: 28.99,
+            description: "A layer of strawberry and chocolate sponge cake overloaded with chocolate and berries on top",
+            image: "images/Cake 9.png"
+        }
+    };
+
+    // Update page with cake details
+    if (cakeId && cakes[cakeId]) {
+        const cake = cakes[cakeId];
+        document.getElementById('cake').textContent = cake.name;
+        document.getElementById('price').textContent = `$${cake.price.toFixed(2)}`;
+        document.getElementById('description').textContent = cake.description;
+        document.getElementById('cake-image').src = cake.image;
+        document.getElementById('cake-image').alt = cake.name;
+        
+        // Update totals
+        const subtotal = cake.price;
+        const tax = 0; // No tax for this example
+        const total = subtotal + tax;
+        
+        document.getElementById('subtotal').textContent = `Subtotal: $${subtotal.toFixed(2)}`;
+        document.getElementById('total').textContent = `TOTAL: $${total.toFixed(2)}`;
+    } else {
+        // Handle invalid cake ID
+        window.location.href = 'menu.html';
+    }
+
+    // Order modal functionality
+    const modal = document.getElementById("orderModal");
+    const closeButton = document.querySelector(".close-button");
+    const backToMenuButton = document.querySelector(".back-to-menu");
+    const placeOrderButton = document.querySelector(".place-order");
+
+    placeOrderButton.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    closeButton.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    backToMenuButton.onclick = function() {
+        window.location.href = "menu.html";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>
