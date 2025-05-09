@@ -52,11 +52,14 @@ header.scrolled {
 }
 
 .logo {
-    font-size: 2.7em;
+    font-size: clamp(1.2rem, 3vw, 2.7em);
     color: var(--primary-color);
     font-family: 'Agbalumo', cursive;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     transition: var(--transition);
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
 }
 
 .logo:hover {
@@ -70,6 +73,40 @@ header.scrolled {
     margin: 0;
     padding: 0;
     font-size: 1.5rem;
+}
+
+/* Mobile Navigation */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+body.menu-open {
+    overflow: hidden;
 }
 
 .nav ul li a {
@@ -120,12 +157,150 @@ header.scrolled {
     box-shadow: var(--shadow);
 }
 
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 1rem 2rem;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: var(--text-light);
+        transition: all 0.3s ease;
+        z-index: 999;
+        padding: 2rem 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        visibility: hidden;
+    }
+
+    .nav.active {
+        left: 0;
+        visibility: visible;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        gap: 2rem;
+        display: flex;
+        width: 100%;
+    }
+
+    .nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav ul li a {
+        font-size: 1.3rem;
+        padding: 0.8rem 1rem;
+        display: block;
+        width: 100%;
+        text-align: center;
+        color: var(--text-dark);
+    }
+
+    .nav ul li a::after {
+        bottom: -2px;
+        width: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .nav ul li a:hover::after,
+    .nav ul li a.active::after {
+        width: 50%;
+    }
+
+    .hero {
+        padding: 6vh 2vw;
+        height: 70vh;
+    }
+
+    .hero-content {
+        padding: 0 1rem;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.8rem, 3vw, 2.5rem);
+    }
+
+    .hero p {
+        font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    }
+
+    .hero button {
+        width: 100%;
+        max-width: 220px;
+    }
+
+    .feature-section1,
+    .feature-section2 {
+        flex-direction: column;
+        padding: 50px 20px;
+    }
+
+    .feature-section1-left,
+    .feature-section1-right,
+    .feature-section2-left,
+    .feature-section2-right {
+        width: 100%;
+    }
+
+    .feature-section1-right-content,
+    .feature-section2-left-content {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+
+    .logo {
+        font-size: clamp(1rem, 2.5vw, 1.8rem);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        padding: 1rem;
+    }
+
+    .logo {
+        font-size: clamp(0.9rem, 2vw, 1.5rem);
+    }
+
+    .hero {
+        height: 60vh;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero button {
+        margin: 0 auto;
+    }
+}
+
 /* ===== HERO SECTION ===== */
 .hero {
     display: flex;
     align-items: center;
     padding: 8vh 5vw;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/HeroSection.png");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/HeroSection.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -842,7 +1017,7 @@ html {
 
 .about-section1-left {
     width: 50%;
-    background-image: url('images/About image1.png');
+    background-image: url('images/About image1.webp');
     background-position: center;
     background-size: cover;
     min-height: 500px;
@@ -935,7 +1110,7 @@ html {
 
 .about-section2-right {
     width: 50%;
-    background-image: url('images/About image 2.png');
+    background-image: url('images/About image 2.webp');
     background-size: cover;
     background-position: center;
     min-height: 500px;

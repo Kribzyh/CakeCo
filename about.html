@@ -12,7 +12,8 @@
 <body>
 
   <header>
-    <div class="logo">Cake Co.</div>
+    <a href="index.html" class="logo">Cake Co.</a>
+    <button class="mobile-menu-btn">☰</button>
     <nav class="nav">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -22,7 +23,7 @@
       </ul>
     </nav>
     <div class="profile">
-        <img src="images/pfp.png"/>
+        <img src="images/pfp.webp"/>
     </div>
   </header>
 
@@ -111,6 +112,39 @@
         } else {
             header.classList.remove('scrolled');
         }
+    });
+
+    // Mobile menu implementation
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('.nav');
+    const body = document.body;
+    
+    // Create overlay
+    const overlay = document.createElement('div');
+    overlay.classList.add('nav-overlay');
+    document.body.appendChild(overlay);
+    
+    function toggleMenu() {
+        nav.classList.toggle('active');
+        overlay.classList.toggle('active');
+        body.classList.toggle('menu-open');
+    }
+    
+    mobileMenuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
+    });
+    
+    overlay.addEventListener('click', toggleMenu);
+    
+    // Close menu when clicking a link
+    const navLinks = document.querySelectorAll('.nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (nav.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
     });
 
     // Smooth scroll for anchor links

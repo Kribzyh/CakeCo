@@ -37,65 +37,65 @@ document.addEventListener("DOMContentLoaded", function () {
       {
         id: 1,
         name: "Heart Shaped Merry Berry",
-        price: 58,
+        price: 1200,
         description: "Moist strawberry sponge cake with strawberry and cream frosting topped with fresh strawberries",
-        image: "images/Cake 1.png"
+        image: "images/Cake 1.webp"
       },
       {
         id: 2,
-        name: "Devil’s Cake",
-        price: 65,
+        name: "Devil's Cake",
+        price: 1500,
         description: "Three layers of rich dark chocolate cake with Belgian caramel covered with Belgian dark chocolate ganache.",
-        image: "images/Cake 2.png"
+        image: "images/Cake 2.webp"
       },
       {
         id: 3,
         name: "Strawberry White Cathedral",
-        price: 52,
+        price: 1300,
         description: "Creamy rich vanilla frosting with two layers of strawberry goodness topped with fresh strawberries.",
-        image: "images/Cake 3.png"
+        image: "images/Cake 3.webp"
       },
       {
         id: 4,
         name: "Triple Chocolate Deluxe",
-        price: 60,
+        price: 1400,
         description: "Triple moist fudge brownie cake with custard filling and coated with milk chocolate ganache.",
-        image: "images/Cake 4.png"
+        image: "images/Cake 4.webp"
       },
       {
         id: 5,
         name: "Fruity Cheesecake",
-        price: 62,
+        price: 1600,
         description: "Mango flavored cheesecake with Biscoff crust topped with fresh mangoes, strawberries, dates, and dark chocolate.",
-        image: "images/Cake 5.png"
+        image: "images/Cake 5.webp"
       },
       {
         id: 6,
         name: "Salted Caramel",
-        price: 57,
+        price: 1350,
         description: "Chocolate sponge layers with salted caramel filling and coated with caramel frosting topped with pretzels and chocolate.",
-        image: "images/Cake 6.png"
+        image: "images/Cake 6.webp"
       },
       {
         id: 7,
         name: "Ube Goodness",
-        price: 59,
+        price: 1250,
         description: "Delicious Ube cake with pure purple yam filling frosted with home-made ube frosting.",
-        image: "images/Cake 7.png"
+        image: "images/Cake 7.webp"
       },
       {
         id: 8,
         name: "Carrot Cream Cake",
-        price: 55,
+        price: 1100,
         description: "Made with pure carrot with almonds and frosted with rich cream cheese.",
-        image: "images/Cake 8.png"
+        image: "images/Cake 8.webp"
       },
       {
         id: 9,
         name: "Choco Berry Overload",
-        price: 63,
+        price: 1450,
         description: "A layer of strawberry and chocolate sponge cake overloaded with chocolate and berries on top.",
-        image: "images/Cake 9.png"
+        image: "images/Cake 9.webp"
       }
     ];
   

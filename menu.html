@@ -11,7 +11,8 @@
 </head>
 <body>
     <header>
-        <div class="logo">Cake Co.</div>
+        <a href="index.html" class="logo">Cake Co.</a>
+        <button class="mobile-menu-btn">☰</button>
         <nav class="nav">
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -21,7 +22,7 @@
             </ul>
         </nav>
         <div class="profile">
-            <img src="images/pfp.png" alt="Profile Picture"/>
+            <img src="images/pfp.webp" alt="Profile Picture"/>
         </div>
     </header>
 
@@ -32,7 +33,7 @@
     <section class="menu-section">
         <div class="menu-cards">
             <div class="menu-card">
-                <img src="images/Cake 1.png" alt="Heart Shaped Merry Berry"/>
+                <img src="images/Cake 1.webp" alt="Heart Shaped Merry Berry"/>
                 <h3>Heart Shaped Merry Berry</h3>
                 <div class="description">
                     <p>Moist strawberry sponge cake with strawberry and cream frosting topped with fresh strawberries</p>
@@ -40,7 +41,7 @@
                 <button onclick="window.location.href='checkout.html?id=1'">Order Now</button>
             </div>
             <div class="menu-card">
-                <img src="images/Cake 2.png" alt="Devil's Cake"/>
+                <img src="images/Cake 2.webp" alt="Devil's Cake"/>
                 <h3>Devil's Cake</h3>
                 <div class="description">
                     <p>Three layers of rich dark chocolate cake with Belgian caramel covered with Belgian dark chocolate ganache.</p>
@@ -48,7 +49,7 @@
                 <button onclick="window.location.href='checkout.html?id=2'">Order Now</button>
             </div>
             <div class="menu-card">
-                <img src="images/Cake 3.png" alt="Strawberry White Cathedral"/>
+                <img src="images/Cake 3.webp" alt="Strawberry White Cathedral"/>
                 <h3>Strawberry White Cathedral</h3>
                 <div class="description">
                     <p>Creamy rich vanilla frosting with two layers of strawberry goodness topped with fresh strawberries.</p>
@@ -56,7 +57,7 @@
                 <button onclick="window.location.href='checkout.html?id=3'">Order Now</button>
             </div>
             <div class="menu-card">
-                <img src="images/Cake 4.png" alt="Triple Chocolate Deluxe"/>
+                <img src="images/Cake 4.webp" alt="Triple Chocolate Deluxe"/>
                 <h3>Triple Chocolate Deluxe</h3>
                 <div class="description">
                     <p>Triple moist fudge brownie cake with custard filling and coated with milk chocolate ganache.</p>
@@ -64,7 +65,7 @@
                 <button onclick="window.location.href='checkout.html?id=4'">Order Now</button>
             </div>
             <div class="menu-card">
-                <img src="images/Cake 5.png" alt="Fruity Cheesecake"/>
+                <img src="images/Cake 5.webp" alt="Fruity Cheesecake"/>
                 <h3>Fruity Cheesecake</h3>
                 <div class="description">
                     <p>Mango flavored cheesecake with Biscoff crust topped with fresh mangoes, strawberries, dates, and dark chocolate.</p>
@@ -72,7 +73,7 @@
                 <button onclick="window.location.href='checkout.html?id=5'">Order Now</button>
             </div>
             <div class="menu-card">
-                <img src="images/Cake 6.png" alt="Salted Caramel"/>
+                <img src="images/Cake 6.webp" alt="Salted Caramel"/>
                 <h3>Salted Caramel</h3>
                 <div class="description">
                     <p>Chocolate sponge layers with salted caramel filling and coated with caramel frosting topped with pretzels and chocolate.</p>
@@ -80,7 +81,7 @@
                 <button onclick="window.location.href='checkout.html?id=6'">Order Now</button>
             </div>
             <div class="menu-card">
-                <img src="images/Cake 7.png" alt="Ube Goodness"/>
+                <img src="images/Cake 7.webp" alt="Ube Goodness"/>
                 <h3>Ube Goodness</h3>
                 <div class="description">
                     <p>Delicious Ube cake with pure purple yam filling frosted with home-made ube frosting.</p>
@@ -88,7 +89,7 @@
                 <button onclick="window.location.href='checkout.html?id=7'">Order Now</button>
             </div>
             <div class="menu-card">
-                <img src="images/Cake 8.png" alt="Carrot Cream Cake"/>
+                <img src="images/Cake 8.webp" alt="Carrot Cream Cake"/>
                 <h3>Carrot Cream Cake</h3>
                 <div class="description">
                     <p>Made with pure carrot with almonds and frosted with rich cream cheese.</p>
@@ -96,7 +97,7 @@
                 <button onclick="window.location.href='checkout.html?id=8'">Order Now</button>
             </div>
             <div class="menu-card">
-                <img src="images/Cake 9.png" alt="Choco Berry Overload"/>
+                <img src="images/Cake 9.webp" alt="Choco Berry Overload"/>
                 <h3>Choco Berry Overload</h3>
                 <div class="description">
                     <p>A layer of strawberry and chocolate sponge cake overloaded with chocolate and berries on top.</p>
@@ -148,6 +149,39 @@
             } else {
                 header.classList.remove('scrolled');
             }
+        });
+
+        // Mobile menu implementation
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('.nav');
+        const body = document.body;
+        
+        // Create overlay
+        const overlay = document.createElement('div');
+        overlay.classList.add('nav-overlay');
+        document.body.appendChild(overlay);
+        
+        function toggleMenu() {
+            nav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            body.classList.toggle('menu-open');
+        }
+        
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
+        
+        overlay.addEventListener('click', toggleMenu);
+        
+        // Close menu when clicking a link
+        const navLinks = document.querySelectorAll('.nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (nav.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
         });
 
         // Smooth scroll for anchor links
